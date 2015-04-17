@@ -71,7 +71,7 @@ button:hover {
 
 .step {
   float: left;
-  width: 33%;
+  width: 16.6%;
   list-style: none;
   position: relative;
   height: 120px;
@@ -91,7 +91,7 @@ button:hover {
   width: 35px;
   z-index: 1;
   position: absolute;
-  left: 47%;
+  left: 40%;
 }
 .connector-prev, .connector-next {
   background: #BFC1C3;
