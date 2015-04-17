@@ -8,5 +8,11 @@ object ImmigrationController extends Controller {
   def index = Action {
     Ok(views.html.enterDetails("Your new application is ready."))
   }
+  
+  
+  
+  def showStatus = Action {
+    Ok("This worked!!")
+  }
 
 }

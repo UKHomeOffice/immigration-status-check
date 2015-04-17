@@ -38,7 +38,7 @@
             <h1>Check the status of your immigration application</h1>
         </header>
 
-        <form action="status.html" method="get">
+        @helper.form(routes.ImmigrationController.showStatus) {
             <p>
                 <label>
                     Surname
@@ -70,7 +70,7 @@
             </p>
 
             <button type="submit">Check status</button>
-        </form>
+        }
     </main>
 
 
