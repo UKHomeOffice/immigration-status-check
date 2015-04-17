@@ -23,10 +23,31 @@ class ImmigrationRepository {
 }
 
 case class ImmigrationData(midaId: String, outcome: String, status: String, applicationDate: DateTime, firstName: String, surname: String) {
-  def isSubmitted() = "complete"
-  def isDocuments() = "complete"
-  def isValidation() = "complete"
-  def isCaseWork() = "complete latest"
-  def isCaseWorker() = ""
-  def isDecision() = ""
+
+  val checks = "Documents Received" :: "Validation Checks" :: "Awaiting Casework" :: "With Caseworker" :: Nil
+
+  val submittedTest = "Blah"
+  def isDecision = if (!"Submitted".equals(status) && !checks.contains(status)) {
+
+    "complete "
+  } else ""
+  def isCaseWorker = if (!isDecision.isEmpty || checks.tail.tail.tail.contains(status)) "complete " else ""
+  def isCaseWork = if (!isCaseWorker.isEmpty || checks.tail.tail.contains(status)) "complete " else ""
+  def isValidation = if (!isCaseWork.isEmpty || checks.tail.contains(status)) "complete " else ""
+  def isDocuments = if (!isValidation.isEmpty || checks.contains(status)) "complete " else ""
+
+  def getText() =
+    if (!isDecision.isEmpty) {
+      "Decision"
+    } else if (!isCaseWorker.isEmpty) {
+      "Case Worker"
+    } else if (!isCaseWork.isEmpty) {
+      "Case"
+    } else if (!isValidation.isEmpty) {
+      "Validation"
+    } else if ("Submitted".equals(status)) {
+      "Submitted"
+    }
+
+
 }
