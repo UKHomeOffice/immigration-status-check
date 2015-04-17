@@ -22,4 +22,11 @@ class ImmigrationRepository {
   }
 }
 
-case class ImmigrationData(midaId: String, outcome: String, status: String, applicationDate: DateTime, firstName: String, surname: String)
+case class ImmigrationData(midaId: String, outcome: String, status: String, applicationDate: DateTime, firstName: String, surname: String) {
+  def isSubmitted() = "complete"
+  def isDocuments() = "complete"
+  def isValidation() = "complete"
+  def isCaseWork() = "complete latest"
+  def isCaseWorker() = ""
+  def isDecision() = ""
+}
