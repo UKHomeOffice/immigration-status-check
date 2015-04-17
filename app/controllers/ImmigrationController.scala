@@ -30,9 +30,9 @@ object ImmigrationController extends Controller {
       },
       application => {
         val applicationReference = application._5
-        val applicationDetails = ImmigrationRepository.checkStatus(applicationReference)
+        val applicationDetails = ImmigrationRepository.checkStatus(applicationReference).get
 
-        Ok(s"This worked!! $applicationDetails.firstName")
+        Ok(views.html.status(applicationDetails))
       }
     )
   }
