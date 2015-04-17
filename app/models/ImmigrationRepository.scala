@@ -9,8 +9,8 @@ object ImmigrationRepository extends ImmigrationRepository
 
 class ImmigrationRepository {
 
-  val src = Source.fromFile("app/resources/front_end_data.csv").getLines().drop(1)
-  
+  def src = Source.fromFile("app/resources/front_end_data.csv").getLines().drop(1)
+
   def checkStatus(id: String): Option[ImmigrationData] = {
     src.foreach{line =>
       val fields = line.split("\\|")

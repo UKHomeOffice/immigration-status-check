@@ -30,9 +30,14 @@ object ImmigrationController extends Controller {
       },
       application => {
         val applicationReference = application._5
-        val applicationDetails = ImmigrationRepository.checkStatus(applicationReference).get
+        val applicationDetails = ImmigrationRepository.checkStatus(applicationReference)
 
-        Ok(views.html.status(applicationDetails))
+        applicationDetails match {
+          case None => Ok(views.html.notFound())
+          case Some(details) => Ok(views.html.status(details))
+        }
+
+
       }
     )
   }
