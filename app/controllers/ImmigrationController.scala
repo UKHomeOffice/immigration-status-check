@@ -34,6 +34,9 @@ object ImmigrationController extends Controller {
 
         applicationDetails match {
           case None => Ok(views.html.notFound())
+          case Some(details) if details.surname != application._1 => {
+            Ok(views.html.notFound())
+          }
           case Some(details) => Ok(views.html.status(details))
         }
 
