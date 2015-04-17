@@ -75,12 +75,18 @@ button:hover {
   list-style: none;
   position: relative;
   height: 120px;
+  font-size: 17px;
 }
 .step h3 {
   padding: 45px 0 0;
   font-weight: normal;
   text-align: center;
   font-size: 17px;
+}
+.step .date {
+  text-align: center;
+  display: block;
+  color: #666;
 }
 
 .step .node {
@@ -127,6 +133,9 @@ button:hover {
   background: #BFC1C3;
 }
 
+.application-details {
+  margin: 40px 0;
+}
 
 .clearfix {
   clear: both;
