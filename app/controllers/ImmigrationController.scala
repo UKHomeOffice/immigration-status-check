@@ -6,7 +6,7 @@ import play.api.mvc._
 object ImmigrationController extends Controller {
 
   def index = Action {
-    Ok(views.html.index("Your new application is ready."))
+    Ok(views.html.enterDetails("Your new application is ready."))
   }
 
 }
